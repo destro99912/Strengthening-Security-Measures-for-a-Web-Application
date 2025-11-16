@@ -1,0 +1,32 @@
+# run these two lines one after the other
+mkdir -Force .\poc
+@"
+Title: Stored XSS via First Name field (NodeGoat - Week1)
+Target URL: http://localhost:4000
+Vulnerable endpoint/page: Signup (POST /signup) -> Profile view
+Field: firstName
+Payload used: <script>alert('XSS')</script>
+
+Steps to reproduce:
+1. Open http://localhost:4000/signup
+2. Fill form:
+   - User Name: xsstestuser
+   - First Name: <script>alert('XSS')</script>
+   - Last Name: tester
+   - Password: TestPass123!
+   - Verify Password: TestPass123!
+   - Email: test+nodegoat@example.com
+3. Submit form.
+4. Observe an alert('XSS') popup when viewing profile — proves stored XSS.
+Evidence:
+- Screenshot: docs/screenshots/xss_alert.png (take and save this screenshot next)
+- DevTools Response showing raw payload reflected in page (you already captured this)
+Impact:
+- An attacker could store arbitrary JS in a user's profile and execute it in other users' browsers (session theft, CSRF, defacement, etc.)
+
+Suggested remediation:
+- Sanitize / encode user-provided input before rendering (HTML-encode on output).
+- Validate & restrict allowed characters for name fields (e.g., letters, spaces only).
+- Use Content-Security-Policy (CSP) to mitigate script execution.
+- Implement proper output encoding libraries or template escaping.
+"@ > .\poc\xss.txt
