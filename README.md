@@ -145,8 +145,8 @@ This project demonstrates progression through key cybersecurity competencies:
 
 **Muhammad Rehan**  
 Cybersecurity Intern  
- Email: [Contact Information]  
- LinkedIn: [Professional Profile]  
+ Email: rehanhanif1991@gmail.com 
+ LinkedIn: [[Professional Profile]  ](https://www.linkedin.com/in/muhammad-rehan-7b736565/)
  GitHub: [@destro99912](https://github.com/destro99912)
 
 ---
